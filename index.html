@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JA全農杯 全国小学生選抜サッカー大会（ちびりんピック）特設ページ | 超ワールドサッカー</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* 超ワールドサッカーをイメージしたカラー設定 */
+        :root {
+            --primary-bg: #1a1a1a;
+            --secondary-bg: #2d2d2d;
+            --accent-green: #4CAF50; /* JA全農イメージ */
+            --accent-yellow: #FFEB3B;
+            --text-main: #ffffff;
+            --text-sub: #b0b0b0;
+            --card-bg: #333333;
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-main);
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #000;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--accent-green);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* ビデオメインセクション */
+        .video-hero {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #000;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .video-hero iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* タグナビゲーション */
+        .tag-nav {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: var(--secondary-bg);
+            border-radius: 5px;
+        }
+
+        .tag {
+            padding: 8px 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--accent-green);
+            border-radius: 20px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .tag:hover, .tag.active {
+            background: var(--accent-green);
+            color: #000;
+        }
+
+        /* セクションタイトル */
+        .section-title {
+            border-left: 5px solid var(--accent-green);
+            padding-left: 15px;
+            margin: 40px 0 20px;
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* 全国大会結果・グリッド */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .result-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 15px;
+        }
+
+        .result-card h3 {
+            margin: 0 0 10px;
+            font-size: 1.1rem;
+            color: var(--accent-yellow);
+            border-bottom: 1px solid #444;
+            padding-bottom: 5px;
+        }
+
+        .score-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        /* SNSディレクトリ */
+        .sns-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .club-card {
+            background: var(--secondary-bg);
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .club-card img {
+            width: 60px;
+            height: 60px;
+            background: #fff;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .club-name {
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .sns-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .sns-links a {
+            font-size: 1.5rem;
+            color: var(--text-sub);
+            transition: 0.3s;
+        }
+
+        .sns-links a.x-link:hover { color: #ffffff; }
+        .sns-links a.insta-link:hover { color: #E1306C; }
+
+        /* 記事カード */
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .article-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .article-thumb {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .play-icon {
+            position: absolute;
+            font-size: 2rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .article-content {
+            padding: 10px;
+        }
+
+        .article-tag {
+            font-size: 0.7rem;
+            background: var(--accent-green);
+            color: #000;
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+
+        @media (max-width: 768px) {
+            .results-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>JA全農杯 全国小学生選抜サッカー大会 特設ページ</h1>
+    <p>NEXT GENERATION LIVE by 超ワールドサッカー</p>
+</header>
+
+<div class="container">
+    <section class="video-hero">
+        <iframe src="https://www.youtube.com/embed/videoseries?list=PL7Msh3L63jpVpX7L92DqY9VrePAbj6RUp" allowfullscreen></iframe>
+    </section>
+
+    <nav class="tag-nav">
+        <a href="#" class="tag active">全て</a>
+        <a href="#" class="tag">#全国大会</a>
+        <a href="#" class="tag">#北海道</a>
+        <a href="#" class="tag">#東北</a>
+        <a href="#" class="tag">#関東</a>
+        <a href="#" class="tag">#北信越</a>
+        <a href="#" class="tag">#東海</a>
+        <a href="#" class="tag">#関西</a>
+        <a href="#" class="tag">#中国</a>
+        <a href="#" class="tag">#四国</a>
+        <a href="#" class="tag">#九州</a>
+    </nav>
+
+    <h2 class="section-title">全国大会 試合結果 <small style="font-size: 0.8rem; font-weight: normal; margin-left: 10px;">2024.05.05 決勝</small></h2>
+    <div class="results-grid">
+        <div class="result-card">
+            <h3>決勝戦</h3>
+            <div class="score-row">
+                <span>レジスタFC (関東1)</span>
+                <span>2 - 1</span>
+                <span>ヴィッセル神戸U-12 (関西1)</span>
+            </div>
+            <p style="font-size: 0.8rem; color: var(--text-sub); text-align: center;">会場：日産スタジアム</p>
+        </div>
+        <div class="result-card">
+            <h3>準決勝 第1試合</h3>
+            <div class="score-row">
+                <span>レジスタFC</span>
+                <span>3 - 0</span>
+                <span>鹿島アントラーズつくば</span>
+            </div>
+        </div>
+        <div class="result-card">
+            <h3>準決勝 第2試合</h3>
+            <div class="score-row">
+                <span>ヴィッセル神戸U-12</span>
+                <span>1 - 0</span>
+                <span>サガン鳥栖U-12</span>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="section-title">最新動画記事</h2>
+    <div class="article-grid">
+        <div class="article-card">
+            <div class="article-thumb">
+                <i class="fas fa-play-circle play-icon"></i>
+                <img src="/api/placeholder/400/225" alt="記事サムネイル" style="width:100%">
+            </div>
+            <div class="article-content">
+                <span class="article-tag">#ハイライト</span>
+                <p style="font-weight: bold; margin-top: 5px;">【動画】決勝戦：レジスタFC vs ヴィッセル神戸 全ゴール集</p>
+            </div>
+        </div>
+        <div class="article-card">
+            <div class="article-thumb">
+                <i class="fas fa-play-circle play-icon"></i>
+                <img src="/api/placeholder/400/225" alt="記事サムネイル" style="width:100%">
+            </div>
+            <div class="article-content">
+                <span class="article-tag">#インタビュー</span>
+                <p style="font-weight: bold; margin-top: 5px;">【動画】大会MVP選手インタビュー「将来の夢は日本代表」</p>
+            </div>
+        </div>
+        <div class="article-card">
+            <div class="article-thumb">
+                <i class="fas fa-play-circle play-icon"></i>
+                <img src="/api/placeholder/400/225" alt="記事サムネイル" style="width:100%">
+            </div>
+            <div class="article-content">
+                <span class="article-tag">#解説</span>
+                <p style="font-weight: bold; margin-top: 5px;">【動画】初心者でもわかる「ちびりんルール」3ピリオド制の戦術</p>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="section-title">出場チーム SNSアカウント</h2>
+    <div class="sns-grid">
+        <div class="club-card">
+            <img src="/api/placeholder/60/60" alt="レジスタFC">
+            <div class="club-name">レジスタFC (埼玉県)</div>
+            <div class="sns-links">
+                <a href="#" class="x-link"><i class="fab fa-x-twitter"></i></a>
+                <a href="#" class="insta-link"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="club-card">
+            <img src="/api/placeholder/60/60" alt="ヴィッセル神戸U-12">
+            <div class="club-name">ヴィッセル神戸U-12 (兵庫県)</div>
+            <div class="sns-links">
+                <a href="#" class="x-link"><i class="fab fa-x-twitter"></i></a>
+                <a href="#" class="insta-link"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="club-card">
+            <img src="/api/placeholder/60/60" alt="サガン鳥栖U-12">
+            <div class="club-name">サガン鳥栖U-12 (佐賀県)</div>
+            <div class="sns-links">
+                <a href="#" class="x-link"><i class="fab fa-x-twitter"></i></a>
+                <a href="#" class="insta-link"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="club-card">
+            <img src="/api/placeholder/60/60" alt="コンサドーレ札幌U-12">
+            <div class="club-name">コンサドーレ札幌U-12 (北海道)</div>
+            <div class="sns-links">
+                <a href="#" class="x-link"><i class="fab fa-x-twitter"></i></a>
+                <a href="#" class="insta-link"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer style="background: #000; padding: 40px; text-align: center; margin-top: 50px; color: var(--text-sub);">
+    <p>&copy; CWS Brains / 超ワールドサッカー</p>
+    <p style="font-size: 0.8rem;">JA全農杯 全国小学生選抜サッカー大会（ちびりんピック）</p>
+</footer>
+
+</body>
+</html>
